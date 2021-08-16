@@ -50,3 +50,32 @@ function isPalindrome(word) {
     console.log("la paola inserita  non è palindoma");
   }
 }
+
+var userChoice = prompt("scegli se 'pari' o 'dispari'");
+//validazione
+// while (userChoice.toLowerCase().trim !== "pari" && userChoice.toLowerCase().trim !== "dispari") {
+//   userChoice = prompt("scegli se 'pari' o 'dispari'");
+// }
+
+var userNumber = prompt("scegli un numero da 1 a 5");
+
+while (isNaN(userNumber) || userNumber > 5 || userNumber < 1) {
+  userNumber = prompt("scegli un numero da 1 a 5");
+}
+var cpuNumber = Math.floor(Math.random() * (5 - 1 + 1) - 1);
+
+var sum = parseInt(userNumber) + cpuNumber;
+
+var isEven = false;
+if (sum % 2 === 0) {
+  isEven = true;
+}
+
+if (
+  (isEven && userChoice.toLowerCase() === "pari") ||
+  (!isEven && userChoice.toLowerCase() === "dispari")
+) {
+  console.log("hai vinto");
+} else {
+  console.log("hai perso");
+}
